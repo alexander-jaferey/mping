@@ -1,13 +1,11 @@
 #!/usr/bin/env Python3.6
 
 import subprocess
-import time
-import sys
 from statistics import median
 
 nums = []
 
-url = input("Address to ping> ")
+url = input("Address to ping: ")
 
 ping = subprocess.run(["ping", "-c 6", url],
         encoding='utf-8',
