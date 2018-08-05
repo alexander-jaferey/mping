@@ -21,5 +21,7 @@ for line in ping:
 		line = line[-9:-3]
 		num = float(line)
 		nums.append(num) 
-middle = median(nums)
-print(f"Median time is {middle} ms")
+
+if nums != []:
+    middle = median(nums)
+    print(f"Median time is {middle} ms")
