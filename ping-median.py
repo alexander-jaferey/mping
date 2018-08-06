@@ -1,16 +1,27 @@
 #!/usr/bin/env Python3.6
 
 import subprocess
+import argparse
 from statistics import median
 
 nums = []
 
-url = input("Address to ping: ")
+parser = argparse.ArgumentParser(description="Get median ping time to an address")
+parser.add_argument("address", help="Address to ping", nargs="?") 
 
-ping = subprocess.run(["ping", "-c 6", url],
-        encoding='utf-8',
-        stdout=subprocess.PIPE
-        )
+args = parser.parse_args()
+
+if args.address:
+    ping = subprocess.run(["ping", "-c 6", args.address],
+            encoding='utf-8',
+            stdout=subprocess.PIPE
+            )
+else:
+    url = input("Address to ping: ")
+    ping = subprocess.run(["ping", "-c 6", url],
+            encoding='utf-8',
+            stdout=subprocess.PIPE
+            )
 
 ping = ping.stdout.splitlines()
 
