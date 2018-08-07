@@ -20,7 +20,7 @@ if args.address:
             )
 else:
     url = input("Address to ping: ")
-    ping = subprocess.run(["ping", "-c 6", url],
+    ping = subprocess.run(["ping", "-c 5", url],
             encoding='utf-8',
             stdout=subprocess.PIPE
             )
@@ -34,7 +34,7 @@ for line in ping:
 		nums.append(num) 
 
 if nums != []:
-    middle = "/" + str(ceil(median(nums)*1000)/1000)
+    middle = "/" + str(median(nums))
 
 for line in ping:
     if not line.startswith("round"):
