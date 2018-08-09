@@ -23,12 +23,15 @@ if args.address:
     #        )
 else:
     url = input("Address to ping: ")
-    ping = subprocess.run(["ping", "-c 5", url],
+    ping = subprocess.check_output(["ping", "-c 6", args.address],
             encoding='utf-8',
-            stdout=subprocess.PIPE
             )
+#    ping = subprocess.run(["ping", "-c 5", url],
+#            encoding='utf-8',
+#            stdout=subprocess.PIPE
+#            )
 
-ping = ping.stdout.splitlines()
+ping = ping.splitlines()
 
 for line in ping:
 	if line.endswith("ms") and line.startswith("64"):
