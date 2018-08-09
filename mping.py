@@ -2,7 +2,6 @@
 
 import subprocess
 import argparse
-from math import ceil
 from sys import stdout
 from statistics import median
 
